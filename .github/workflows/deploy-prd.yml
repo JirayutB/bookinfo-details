@@ -29,7 +29,7 @@ jobs:
           value-files: k8s/helm-values/values-bookinfo-prd-details.yaml
           values: |
             {
-              "details": {
+              "ratings": {
                 "tag": "${{ github.event.inputs.deploy-version }}"
               },
               "extraEnv": {
@@ -41,4 +41,4 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Check health check page
-        run: curl http://bookinfo.opsta.net/student109/details/health | grep "details is working"
+        run: curl http://bookinfo.opsta.net/student109/details/health | grep "Details is healthy"
